@@ -1,4 +1,4 @@
-import {WebSocketServer} from './lib/ws-bun';
+import {WebSocketServer} from '../lib/ws-bun';
 
 const wss = new WebSocketServer({ port: 8080 });
 
@@ -8,6 +8,4 @@ wss.on('connection', (ws) => {
   });
 
   ws.send('Hello from server!');
-
-  ws.close(1233,"dddddddd");
 });
