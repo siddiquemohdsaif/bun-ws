@@ -1,0 +1,18 @@
+config:
+  target: 'ws://localhost:8080'
+  phases:
+    - duration: 10
+      arrivalRate: 2500
+  ws:
+    subprotocols:
+      - 'json'
+  processor: "./functions.cjs"  # Reference to the JS file
+
+scenarios:
+  - engine: "ws"
+    flow:
+      - loop:
+          - send: '{"type": "message", "payload": "hello world", "count": "{{ count }}"}'
+          - think: 1
+        count: 200
+      - function: "incrementCount"

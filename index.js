@@ -9,5 +9,8 @@ wss.on('connection', (ws) => {
 
   ws.send('Hello from server!');
 
-  ws.close(1233,"dddddddd");
+  // Close the connection after a delay of 2 seconds.
+  setTimeout(() => {
+    ws.close(4100,"dddddddd");
+  }, 2000);
 });

@@ -1,7 +1,6 @@
-import {WebSocketServer} from '../lib/ws-bun';
+import { WebSocketServer } from 'ws';
 
 const wss = new WebSocketServer({ port: 8080 });
-
 let user  = 0;
 let i=0;
 wss.on('connection', (ws) => {
