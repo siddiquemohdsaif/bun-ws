@@ -2,7 +2,7 @@ config:
   target: 'ws://localhost:8080'
   phases:
     - duration: 10
-      arrivalRate: 2500
+      arrivalRate: 250
   ws:
     subprotocols:
       - 'json'
@@ -14,5 +14,10 @@ scenarios:
       - loop:
           - send: '{"type": "message", "payload": "hello world", "count": "{{ count }}"}'
           - think: 1
-        count: 200
+        count: 20
+      - function: "incrementCount"
+      - loop:
+          - send: '{"type": "message", "payload": "hello world", "count": "{{ count }}"}'
+          - think: 0.020
+        count: 10000
       - function: "incrementCount"

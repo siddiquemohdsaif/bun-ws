@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "cluster": "^0.7.7",
     "ws": "^8.14.1"
   }
 }
